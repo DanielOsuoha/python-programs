@@ -1,0 +1,7 @@
+1, The the /S specifies non-white space characters
+2, ^ means to match all the characters that follow it that begin the line
+3, e.g '^/S+:' means to match all the characters that begin the line with that format
+
+5, [0-9]+ -> match all number characters
+4, search() gives a boolean value that indicates whether the pattern matches the line
+5, findall() gives a list of lines that match the pattern
