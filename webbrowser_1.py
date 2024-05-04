@@ -1,9 +1,10 @@
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
+# from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWebEngineWidgets import *
 class MyWebBrowser(QMainWindow):
-    def __init__(self):        
+    def __init__(self): 
+        super(MyWebBrowser, self).__init__()       
         self.window = QWidget()
         self.window.setWindowTitle("My Web Browser")
         self.layout = QVBoxLayout()
@@ -11,11 +12,11 @@ class MyWebBrowser(QMainWindow):
         
         self.url_bar = QTextEdit()
         self.url_bar.setMaximumHeight(28)
-        self.forward_btn = QPushButton("Go")
+        self.forward_btn = QPushButton("Forward")
         self.forward_btn.setMinimumHeight(28)
         
         
-        self.back_btn = QPushButton("Go")
+        self.back_btn = QPushButton("Back")
         self.back_btn.setMinimumHeight(28)
         
         
@@ -36,15 +37,18 @@ class MyWebBrowser(QMainWindow):
         
         self.layout.addLayout(self.horizontal)
         self.layout.addWidget(self.browser)
-        
+    
         self.browser.setUrl(QUrl("https://www.google.com"))
+        self.setCentralWidget(self.browser)
         self.window.setLayout(self.layout)
+        self.window.showMaximized()
         self.window.show()
         
     def navigate(self, url):
-        if not url.startswith("http"):
-            url = "http://" + url
-            self.url_bar.setText(url)
+        if not url.startswith("https"):
+            url = "https://" + url
+       
+        self.url_bar.setText(url)
         self.browser.setUrl(QUrl(url))
         
         
