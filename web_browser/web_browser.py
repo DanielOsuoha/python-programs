@@ -60,7 +60,15 @@ class MyWebBrowser(QMainWindow):
         )
         self.refresh_btn.clicked.connect(self.browser.reload)
         self.horizontal.addWidget(self.refresh_btn)
-        
+        #add the Home button
+        self.home_btn = QPushButton("Home")
+        self.home_btn.setMinimumHeight(28)
+        self.home_btn.setStyleSheet(
+            "QPushButton { border-radius: 5px; background-color: rgb(200,223,223); }"
+            "QPushButton:hover { background-color: #bbb; }"
+        )
+        self.home_btn.clicked.connect(lambda: self.navigate("https://www.google.com"))
+        self.horizontal.addWidget(self.home_btn)
         
         # Connect returnPressed signal of QTextEdit to slot for go_btn click
         # self.url_bar.returnPressed.connect(self.go_btn.click)
