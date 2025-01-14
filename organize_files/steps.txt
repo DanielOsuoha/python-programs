@@ -1,0 +1,6 @@
+Create the doc and pdf directories
+Take in directory to perform action on from the user
+Get the list of files in the directory and store it in a list
+Loop through that list and split the files into name and extension
+if the extension is in the set of extensions ('.doc','.pdf','.docx')
+move them into their respective directories 
