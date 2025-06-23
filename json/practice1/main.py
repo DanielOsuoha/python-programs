@@ -2,7 +2,7 @@ import json
 
 def main():
     file = "student.json"
-    file = open(file, "r")
+    file = open(file, "w")
     student = {
         "name": "Daniel",
         "age": 21,
