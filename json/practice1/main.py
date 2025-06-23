@@ -10,3 +10,7 @@ def main():
     }
     json.dump(student, file, indent=4)
     file.close()
+
+if __name__ == "__main__":
+    main()
+    print("JSON file created successfully.")
