@@ -1,7 +1,10 @@
 ### Extra details on Heaps
 
 
-Priority Queue Implementation Notes
+- The **heapq** module also has the nsmalest() and nlargest() methods
+
+##### Priority Queue Implementation Notes
+
 A priority queue is common use for a heap, and it presents several implementation challenges:
 
 Sort stability: how do you get two tasks with equal priorities to be returned in the order they were originally added?
