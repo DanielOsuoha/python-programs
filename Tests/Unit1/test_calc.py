@@ -15,8 +15,12 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(calc.subtract(0, -2), 2)
         self.assertNotEqual(calc.subtract(9, 2), 8)
     def test_divide(self):
-        """"""
+        """Test divide"""
         self.assertRaises(ValueError, calc.divide, 3, 0)
+        # another great way would be to use the "with" context manager
+        with self.assertRaises(ValueError):
+            calc.divide(10, 0)
+            calc.divide(-20, 0)
 
 if __name__ == "__main__":
     unittest.main()
