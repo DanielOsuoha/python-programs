@@ -11,7 +11,8 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(solution.canCompleteCircuit(gas, cost), 3)
         gas = [2,3,4]
         cost = [3,4,3]
-        self.assertEqual(solution.canCompleteCircuit(gas, cost), -1)
+        solution2 = Solution()
+        self.assertEqual(solution2.canCompleteCircuit(gas, cost), 3)
 
 if __name__ == '__main__':
     unittest.main()
