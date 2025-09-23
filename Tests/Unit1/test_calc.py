@@ -22,5 +22,10 @@ class TestCalc(unittest.TestCase):
             calc.divide(10, 0)
             calc.divide(-20, 0)
 
+        """
+            with self.assertRaises(SomeException):
+                do_something()        
+        """
+
 if __name__ == "__main__":
     unittest.main()
