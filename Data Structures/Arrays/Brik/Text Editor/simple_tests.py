@@ -8,9 +8,7 @@ from code import TextEditor
 def test_basic_functionality():
     """Test basic insert and delete operations."""
     print("Testing TextEditor basic functionality...")
-    
     editor = TextEditor()
-    
     print(f"Initial state - Length: {len(editor.editor)}")
     assert len(editor.editor) == 0, "Editor should start empty"
     
@@ -39,13 +37,13 @@ def test_implementation_issues():
     
     print("Issue 1: Insert method ignores offset parameter")
     editor.insert(5, "Hello") 
-    print(f"Inserted 'Hello' at offset 5, but indices start at: {[item[0] for item in editor.editor]}")
+    print(f"Inserted 'Hello' at offset 5, but indices start at: {editor.editor}")
     
     print("\nIssue 2: Multiple inserts create overlapping indices")
     editor2 = TextEditor()
     editor2.insert(0, "ABC")
     editor2.insert(0, "DEF") 
-    print(f"After two inserts, all indices: {[item[0] for item in editor2.editor]}")
+    print(f"After two inserts, all indices: {editor2.editor}")
     
     print("\nIssue 3: Delete method issues")
     editor3 = TextEditor()
