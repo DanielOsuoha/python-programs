@@ -18,3 +18,16 @@ editor.insert(0, "Hello World")
 editor.delete(5, 1)
 editor.insert(5, ",")
 print(editor.get_text())   # Output: "Hello,World"
+
+
+Constraints
+
+- 0 <= offset <= current_length for all operations.
+
+- 0 <= length <= current_length - offset for deletions.
+
+- The total number of operations can be up to 10^5.
+
+- The total text length can grow up to 10^7 characters.
+
+- Aim for O(log n) or amortized O(1) operations for typical inserts and deletes.
