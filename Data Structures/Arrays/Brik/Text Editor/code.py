@@ -11,4 +11,4 @@ class TextEditor:
     def delete(self, offset, length):
         for _ in range(length):
             self.editor.pop(offset)
-        
+    
