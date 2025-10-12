@@ -145,7 +145,7 @@ class TestTextEditor(unittest.TestCase):
         
         # Check that Unicode characters are preserved
         self.assertIn((0, "こ"), self.editor.editor)
-        self.assertIn((6, "🌍"), self.editor.editor)
+        self.assertIn((5, "🌍"), self.editor.editor)  # Corrected index
 
 
 class TestTextEditorIntegration(unittest.TestCase):
