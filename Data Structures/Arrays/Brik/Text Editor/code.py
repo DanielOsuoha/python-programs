@@ -9,4 +9,6 @@ class TextEditor:
             self.editor.add((index+i, text[i]))
 
     def delete(self, offset, length):
-        pass
+        for _ in range(length):
+            self.editor.pop(offset)
+        
