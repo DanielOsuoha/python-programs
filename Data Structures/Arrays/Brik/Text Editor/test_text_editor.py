@@ -17,15 +17,12 @@ class TestTextEditor(unittest.TestCase):
         """Test inserting a single character."""
         self.editor.insert(0, "a")
         self.assertEqual(len(self.editor.editor), 1)
-        # Check that the character was inserted with correct index
         self.assertIn((0, "a"), self.editor.editor)
     
     def test_insert_multiple_characters(self):
         """Test inserting multiple characters."""
         self.editor.insert(0, "hello")
         self.assertEqual(len(self.editor.editor), 5)
-        
-        # Check that all characters were inserted with correct indices
         expected_pairs = [(0, "h"), (1, "e"), (2, "l"), (3, "l"), (4, "o")]
         for pair in expected_pairs:
             self.assertIn(pair, self.editor.editor)
@@ -39,11 +36,7 @@ class TestTextEditor(unittest.TestCase):
         """Test multiple insert operations."""
         self.editor.insert(0, "abc")
         self.editor.insert(0, "def")
-        
-        # Should have 6 characters total
         self.assertEqual(len(self.editor.editor), 6)
-        
-        # Check specific characters exist
         self.assertIn((0, "a"), self.editor.editor)
         self.assertIn((1, "b"), self.editor.editor)
         self.assertIn((2, "c"), self.editor.editor)
@@ -55,8 +48,6 @@ class TestTextEditor(unittest.TestCase):
         """Test deleting a single character."""
         self.editor.insert(0, "hello")
         self.assertEqual(len(self.editor.editor), 5)
-        
-        # Delete one character from position 0
         self.editor.delete(0, 1)
         self.assertEqual(len(self.editor.editor), 4)
     
