@@ -1,5 +1,6 @@
+from sortedcontainers import SortedList
+
 class TextEditor:
-    from sortedcontainers import SortedList
     def __init__(self):
         self.editor = SortedList()
     
