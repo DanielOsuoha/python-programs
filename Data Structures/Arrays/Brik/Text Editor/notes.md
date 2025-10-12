@@ -17,7 +17,7 @@ editor = TextEditor()
 editor.insert(0, "Hello World")
 editor.delete(5, 1)
 editor.insert(5, ",")
-print(editor.get_text())   # Output: "Hello,World"
+print(editor.get_text())  
 
 
 Constraints
@@ -31,3 +31,14 @@ Constraints
 - The total text length can grow up to 10^7 characters.
 
 - Aim for O(log n) or amortized O(1) operations for typical inserts and deletes.
+
+
+Follow-up
+
+Can you optimize your implementation for large text edits by using a data structure such as:
+
+a Rope,
+
+a Piece Table, or
+
+a Gap Buffer
