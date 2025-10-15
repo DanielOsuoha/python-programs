@@ -56,8 +56,6 @@ update the connections
 
 check for boxes -> player or
 
-
-
 switch turns
 
 """
@@ -80,16 +78,16 @@ class DotsAndBoxes:
             if self.validate_move(start, end):
                 result = self.make_move(start, end) # -> {box_formed: True/False, winner: playerx}
                 if result['box_formed']:
-                    return f'{result['winner']} has won the game!'
+                    return f"{result['winner']} has won the game!"
                 if result['game_over']:
-                    return f'The game has ended.'
+                    return 'The game has ended.'
         return 'The game has ended without a winner.'
                 
     def validate_move(self, start, end):
         row1, col1 = start
         row2, col2 = end
-        if not (0 <= row1 < self.size*2 -1  and 0 <= col1< self.size*2-1 and
-                0 <= row2 < self.size*2 -1  and 0 <= col2 < self.size*2-1):
+        if not (0 <= row1 < self.size  and 0 <= col1< self.size and
+                0 <= row2 < self.size  and 0 <= col2 < self.size):
             return False
         edge = tuple(sorted(start, end))
         if edge in self.edges:
@@ -99,7 +97,7 @@ class DotsAndBoxes:
         return True
     
     def make_move(self, start, end):
-        self.edges.add(tuple(sorted(start, end)))
+        self.edges.add(tuple(sorted([start, end])))
         row1, col1 = start
         row2, col2 = end
         row = col = None
@@ -109,7 +107,7 @@ class DotsAndBoxes:
             "game_over": False
         }
         if row1 == row2:
-            row = row1
+            row = row1 * 2
             col = min(col1*2, col2*2) + 1
             self.board[row][col] = '-'
             if self.box_formed(row-1, col) or self.box_formed(row+1, col):
@@ -117,7 +115,7 @@ class DotsAndBoxes:
                 result['winner'] = self.players[self.turns]
         else:
             row = min(row1*2, row2*2) + 1
-            col = col1
+            col = col1 * 2
             self.board[row][col] = '|'
             if self.box_formed(row, col-1) or self.box_formed(row, col+1):
                 result['box_formed'] = True
@@ -134,4 +132,14 @@ class DotsAndBoxes:
         self.turns ^= 1
     
 def main():
-    pass
+    import sys
+    input = sys.stdin.readline
+    player1 = input("Player 1's name: ").strip()
+    player2 = input("Player 2's name: ").strip()
+    size = int(input("Enter the size of the board or number of rows (n): ").strip())
+    game = DotsAndBoxes(player1, player2, size)
+    moves = [
+        [(0, 0), (0, 1)],
+        [(0, 1), (0, 2)]        
+    ]
+    print(game.play(moves))
