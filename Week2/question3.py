@@ -17,6 +17,20 @@ Example output:
 3
 """
 
+from typing import List
 
-def num_equiv_species_pairs(species_pairs):
-    pass
+def num_equiv_species_pairs(species_pairs: List[List[int]]) -> int:
+    from collections import defaultdict
+    equivalent_pairs = defaultdict(int)
+    count = 0
+    for pair in species_pairs:
+        normalized_pair = min(pair), max(pair)
+        count += equivalent_pairs[normalized_pair]
+        equivalent_pairs[normalized_pair] += 1
+    return count
+
+species_pairs1 = [[1, 2], [2, 1], [3, 4], [5, 6]]
+species_pairs2 = [[1, 2], [1, 2], [1, 1], [1, 2], [2, 2]]
+
+print(num_equiv_species_pairs(species_pairs1))
+print(num_equiv_species_pairs(species_pairs2))

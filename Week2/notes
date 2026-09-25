@@ -1,0 +1,42 @@
+ # Key Ideas
+
+Use this structure for each new idea:
+
+## 1. Canonicalization for Unordered Matches
+
+### Core idea
+When two objects are equivalent regardless of order, convert each one into the same consistent representation before comparing or storing it.
+
+### Example
+For pairs where `[a, b]` is equivalent to `[b, a]`:
+
+```python
+normalized_pair = (min(a, b), max(a, b))
+```
+
+Both `[1, 2]` and `[2, 1]` become `(1, 2)`, so only one version needs to be stored.
+
+### Useful tools
+- `tuple(sorted(items))` preserves duplicates while ignoring order.
+- `frozenset(items)` ignores both order and duplicates.
+- A dictionary or set can store the canonical representation for fast lookup.
+
+### Key question
+What information should remain meaningful? Choose a representation that removes irrelevant differences without removing information that matters.
+
+### Related pattern
+When counting matching pairs, keep track of how many canonical versions have already appeared. Each new occurrence matches all previous occurrences.
+
+---
+
+## 2. [Add idea title]
+
+### Core idea
+
+### Example
+
+### Useful tools
+
+### Key question or caveat
+
+### Related pattern
